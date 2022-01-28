@@ -6,9 +6,6 @@ organization := "io.github.duttley"
 sbtPlugin := true
 publishMavenStyle := true
 
-sonatypeCredentialHost := "s01.oss.sonatype.org"
-sonatypeRepository := "https://s01.oss.sonatype.org/service/local"
-
 libraryDependencies ++= Seq(
   "org.web3j" % "core" % "4.8.7",
   "org.web3j" % "abi" % "4.8.7",
