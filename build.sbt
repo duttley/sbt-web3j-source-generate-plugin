@@ -5,8 +5,8 @@ organization := "io.github.duttley"
 //scalaVersion := "2.13.7"
 sbtPlugin := true
 
-//sonatypeCredentialHost := "s01.oss.sonatype.org"
-//sonatypeRepository := "https://s01.oss.sonatype.org/service/local"
+sonatypeCredentialHost := "s01.oss.sonatype.org"
+sonatypeRepository := "https://s01.oss.sonatype.org/service/local"
 
 libraryDependencies ++= Seq(
   "org.web3j" % "core" % "4.8.7",
