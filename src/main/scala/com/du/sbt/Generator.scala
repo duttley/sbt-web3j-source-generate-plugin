@@ -25,6 +25,7 @@ object Generator {
 }
 
 class Generator(json: File, dest: File, pack: String) {
+
   def generateSources(): Seq[File] = {
     val contracts = findContracts(getFileTree(json))
     val packageDir = new File(pathToDir(pack))
@@ -35,5 +36,6 @@ class Generator(json: File, dest: File, pack: String) {
     }
     sourceFiles
   }
+
 }
 
