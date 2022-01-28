@@ -15,6 +15,7 @@ object Web3jsourcegeneratepluginPlugin extends AutoPlugin {
   object autoImport {
     val contractsSetting = settingKey[File]("A setting that is automatically imported to the build")
     val outputSetting = settingKey[File]("A setting that is automatically imported to the build")
+    val sourceDirSetting = settingKey[File]("A setting that is automatically imported to the build")
     val packageSetting = settingKey[String]("A setting that is automatically imported to the build")
     val codegen = taskKey[Seq[File]]("A task that is automatically imported to the build")
   }
@@ -27,22 +28,13 @@ object Web3jsourcegeneratepluginPlugin extends AutoPlugin {
 
   lazy val baseSettings: Seq[Def.Setting[_]] = Seq(
     contractsSetting := (sourceDirectory.value / "contracts"),
-    outputSetting := sourceManaged.value / "compiled_abi" ,
-    codegen := codegenTask.value
-//    res := (Compile / resourceDirectory).value
+    outputSetting := sourceManaged.value, /// "compiled_abi" ,
+    codegen := {
+      println("Bob")
+      sLog.value.info("Generating sources for " + contractsSetting.value.getPath)
+      sLog.value.info("Package " + packageSetting.value)
+      Generator(contractsSetting.value, outputSetting.value, packageSetting.value).generateSources()
+    }
   )
-
-  override lazy val buildSettings = Seq()
-
-  override lazy val globalSettings = Seq()
-
-  private def codegenTask =  Def.task {
-    println("Bob")
-    sLog.value.info("Generating sources for " + contractsSetting.value.getPath)
-    sLog.value.info("Package " + packageSetting.value)
-    Generator(contractsSetting.value, outputSetting.value, packageSetting.value).generateSources()
-//    (Compile / resourceDirectory).value
-//    (Compile/ scalaInstance).value
-  }
 
 }

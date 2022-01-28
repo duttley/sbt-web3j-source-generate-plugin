@@ -1,9 +1,12 @@
 
 name := """sbt-web3j-source-generate-plugin"""
-organization := "com.du"
-version := "0.1-SNAPSHOT"
+organization := "io.github.duttley"
+//version := "0.1-SNAPSHOT"
 //scalaVersion := "2.13.7"
 sbtPlugin := true
+
+sonatypeCredentialHost := "s01.oss.sonatype.org"
+sonatypeRepository := "https://s01.oss.sonatype.org/service/local"
 
 libraryDependencies ++= Seq(
   "org.web3j" % "core" % "4.8.7",
@@ -14,7 +17,7 @@ libraryDependencies ++= Seq(
 )
 
 inThisBuild(List(
-  organization := "com.du",
+  organization := "io.github.duttley",
   homepage := Some(url("https://github.com/duttley/sbt-web3j-source-generate-plugin")),
   licenses := List("Apache-2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0")),
   developers := List(
@@ -27,7 +30,7 @@ inThisBuild(List(
   )
 ))
 
-initialCommands in console := """import com.du.sbt._"""
+initialCommands in console := """import io.github.duttley.sbt._"""
 
 enablePlugins(ScriptedPlugin)
 // set up 'scripted; sbt plugin for testing sbt plugins
