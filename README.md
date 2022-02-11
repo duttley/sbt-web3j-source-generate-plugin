@@ -6,15 +6,19 @@ An sbt AutoPlugin
 
 This plugin requires sbt 1.0.0+
 
+Add the following line and config to your sbt plugins.
+
+```scala
+addSbtPlugin("io.github.duttley" % "sbt-web3j-source-generate-plugin" % "0.1.2")
+```
+
 This plugin scans src/main/contracts for any truffle files. 
 
 The only required setting is the package setting. Add this to your project definition in build.sbt.
 
 ```scala
-packageSetting := "com.du.abi"
+packageSetting := "<your package>"
 ```
-
-
 
 ### Testing
 
