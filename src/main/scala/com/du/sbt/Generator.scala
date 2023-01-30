@@ -21,7 +21,7 @@ object Generator {
 
   def pathToDir(path: String): String = path.replaceAll("[.]", "/")
 
-  def nameJsonToJava(json: String): String = json.replaceAll("[.]json", ".java")
+  def nameJsonToJava(json: String): String = json.replaceAll("[.]json", ".java").capitalize
 }
 
 class Generator(json: File, dest: File, pack: String) {

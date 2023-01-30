@@ -1,6 +1,6 @@
-# sbt-web3j-source-generate-plugin
+# SBT Web3j Source Code Generator
 
-An sbt AutoPlugin
+SBT AutoPlugin for generating source code from truffle files using the Web3j code generator.
 
 ## Usage
 
@@ -12,8 +12,14 @@ The only required setting is the package setting. Add this to your project defin
 
 ```scala
 packageSetting := "com.du.abi"
+Compile / sourceGenerators += (Compile / codegen).taskValue
 ```
 
+To use add the following to your plugins.sbt.
+
+```scala
+addSbtPlugin("io.github.duttley" % "sbt-web3j-source-generate-plugin" % "0.1.2")
+```
 
 
 ### Testing

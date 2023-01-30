@@ -19,7 +19,7 @@ class Web3jsourcegeneratepluginTest extends AnyFlatSpec with Matchers {
 
     files.size should be(1)
 
-    files.head.getName should be("IFtso.json")
+    files.head.getName should be("File.json")
   }
 
   it should "Replace dots with slashes e.g. convert package to path." in {
@@ -27,6 +27,10 @@ class Web3jsourcegeneratepluginTest extends AnyFlatSpec with Matchers {
   }
 
   it should "Rename jason to java" in {
-    Generator.nameJsonToJava("IFtso.json") should be("IFtso.java")
+    Generator.nameJsonToJava("File.json") should be("File.java")
+  }
+
+  it should "Uppercase first letter" in {
+    Generator.nameJsonToJava("file.json") should be("File.java")
   }
 }
